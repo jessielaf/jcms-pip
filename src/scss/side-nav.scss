@@ -1,0 +1,41 @@
+.jcms-side-nav {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+
+  .card {
+    background: $secondary-color-light;
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+
+    .card-header {
+      background: $secondary-color-light;
+      font-size: 1.2em;
+      padding: 0;
+      height: 100%;
+      border: 0;
+    }
+
+    .card-block {
+      background: white;
+      padding: 0;
+    }
+
+    a {
+      width: 100%;
+      display: block;
+      color: $secondary-text-color;
+      text-decoration: none;
+      padding: 10px 0;
+      text-align: center;
+
+      &:hover {
+        background: $secondary-color;
+      }
+    }
+  }
+}

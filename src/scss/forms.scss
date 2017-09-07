@@ -1,0 +1,12 @@
+.jcms-form {
+
+    label {
+        @extend .form-control-label;
+    }
+
+    input, textarea {
+        @extend .form-control;
+        margin-bottom: 10px;
+        float: left;
+    }
+}

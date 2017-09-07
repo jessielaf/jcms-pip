@@ -1,0 +1,12 @@
+# All python things
+*.log
+*.pot
+__pycache__/
+media
+
+# Standard for node_modules
+/node_modules
+
+# Only for this project
+/static
+
