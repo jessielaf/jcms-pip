@@ -1,10 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractStyles = new ExtractTextPlugin('app.css');
+const extractStyles = new ExtractTextPlugin('style.css');
 
 module.exports = {
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, 'src/js'),
   entry: {
     app: './app.js'
   },
@@ -25,7 +25,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'dist/assets'),
+    path: path.resolve(__dirname, 'jcms/static/jcms'),
     filename: '[name].bundle.js'
   },
   resolve: {

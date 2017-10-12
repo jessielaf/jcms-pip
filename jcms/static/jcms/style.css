@@ -1,0 +1,16 @@
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body {
+    color: #000000;
+
+    font-family: 'Vollkorn', serif;
+    line-height: 150%;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}

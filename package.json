@@ -1,5 +1,6 @@
 {
-  "devDependencies": {
+  "dependencies": {
+    "caniuse-lite": "^1.0.30000746",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.1",
     "postcss": "^6.0.13",
@@ -7,5 +8,8 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.6",
     "webpack": "^3.6.0"
+  },
+  "scripts": {
+    "build": "node_modules/webpack/bin/webpack.js"
   }
 }

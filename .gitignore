@@ -7,6 +7,9 @@ media
 # Standard for node_modules
 /node_modules
 
-# Only for this project
+# Pip
 /static
-
+/jcms.egg-info
+/dist
+/build
+.idea

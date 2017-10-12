@@ -1,0 +1,15 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    color: #000000;
+
+    font-family: 'Vollkorn', serif;
+    line-height: 150%;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}

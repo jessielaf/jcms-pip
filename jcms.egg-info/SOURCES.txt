@@ -24,7 +24,7 @@ jcms/mixins/__init__.py
 jcms/mixins/jcms_crud.py
 jcms/mixins/menu_item.py
 jcms/static/jcms.css
-jcms/static/jcms.js
+jcms/static/app.js
 jcms/templates/icons/add.svg
 jcms/templates/icons/cancel.svg
 jcms/templates/icons/delete.svg
