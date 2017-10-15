@@ -1,12 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractStyles = new ExtractTextPlugin('style.css');
+const extractStyles = new ExtractTextPlugin('[name]');
 
 module.exports = {
   context: path.resolve(__dirname, 'src/js'),
   entry: {
-    app: './app.js'
+    'app.bundle.js': './app.js',
+    'style.css': '../css/style.css',
+    'grid.css': '../css/grid.css',
   },
   module: {
     loaders: [
@@ -26,7 +28,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'jcms/static/jcms'),
-    filename: '[name].bundle.js'
+    filename: '[name]'
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
