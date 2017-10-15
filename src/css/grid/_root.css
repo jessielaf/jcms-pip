@@ -1,0 +1,6 @@
+:root {
+    @custom-media --small (width <= 480px);
+    @custom-media --medium (width <= 767px);
+    @custom-media --large (width <= 1200px);
+  }
+  
