@@ -1,0 +1,29 @@
+.login-screen {
+    background: var(--primary-color);
+    height: 100vh;
+
+    & .login-form {
+        color: var(--secondary-text-color);
+        background: var(--secondary-color-light);
+
+        padding: 20px 10px;
+
+        border-radius: 10px;
+
+        & input[type="text"] {
+            background: var(--primary-color);
+            color: var(--primary-text-color);
+
+            border: 0;
+            border-bottom: 3px solid var(--primary-color-dark);
+
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+
+        & input[type="text"]:focus {
+             border-bottom: 3px solid var(--primary-color-light);
+            outline: none;
+        }
+    }
+}
