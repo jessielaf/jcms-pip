@@ -7,13 +7,13 @@
 {% for field in form %}
     <div class="col-12 jcms-form">
         {% if field.errors %}
-            <div class="offset-2 col-10">
+            <div class="offset-3 col-9">
                 <span class="text-danger small">{{ field.errors }}</span>
             </div>
         {% endif %}
 
-        <div class="col-2">{{ field.label_tag }}</div>
+        <div class="col-3">{{ field.label_tag }}</div>
 
-        <div class="col-10">{{ field }}</div>
+        <div class="col-9">{{ field }}</div>
     </div>
 {% endfor %}
