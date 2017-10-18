@@ -2,6 +2,10 @@
     background: var(--primary-color-dark);
     color: var(--black);
 
+    & > * {
+        padding: 10px;
+    }
+
     & .brand {
         border-right: solid 1px var(--black);
     }

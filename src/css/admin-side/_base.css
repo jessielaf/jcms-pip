@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Palanquin');
 
 body {
-    color: #000000;
+    color: var(--black);
 
     font-family: 'Palanquin', sans-serif;
     line-height: 150%;
@@ -10,8 +10,32 @@ body {
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 .hidden {
     display: none;
+}
+
+.icon {
+    max-width: 1em;
+    max-height: 1em;
+}
+
+.dropdown-target {
+    background: var(--primary-color-light);
+
+    margin-top: 7px;
+
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    & a {
+        padding: 3px;
+    }
+
+    & a:hover {
+        background: var(--primary-color);
+    }
 }
