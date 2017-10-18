@@ -9,6 +9,7 @@ module.exports = {
     'app.bundle.js': './app.js',
     'style.css': '../css/style.css',
     'grid.css': '../css/grid.css',
+    'dropdown.js': './dropdown.js'
   },
   module: {
     loaders: [

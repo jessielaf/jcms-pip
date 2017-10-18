@@ -1,0 +1,8 @@
+.top-nav {
+    background: var(--primary-color-dark);
+    color: var(--black);
+
+    & .brand {
+        border-right: solid 1px var(--black);
+    }
+}
