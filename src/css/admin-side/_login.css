@@ -31,15 +31,10 @@
             outline: none;
         }
 
-        & .button {
+        & .login-button {
             background: var(--primary-color);
             color: var(--white);
 
-            font-family: 'Palanquin', sans-serif;
-            font-size: 0.8em;
-
-            border: 0;
-            padding: 5px 15px;
             margin-top: 10px;
         }
     }

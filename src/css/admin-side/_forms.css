@@ -1,11 +1,17 @@
 .jcms-form {
-    height: 100%;
-
     & .jcms-form-row {
         margin-bottom: 10px;
 
         & .label-row {
             margin-bottom: 5px;
         }
+    }
+
+    & .btn {
+        font-family: 'Palanquin', sans-serif;
+        font-size: 0.8em;
+
+        border: 0;
+        padding: 5px 15px;
     }
 }
