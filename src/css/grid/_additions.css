@@ -1,0 +1,8 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+.align-items-center {
+    display: flex;
+    align-items: center;
+}

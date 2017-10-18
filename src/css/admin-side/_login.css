@@ -1,0 +1,41 @@
+@custom-selector :--login-inputs input[type="text"], input[type="password"];
+
+.login-screen {
+    background: var(--primary-color-dark);
+    height: 100vh;
+
+    & .login-form {
+        color: var(--secondary-text-color);
+        background: var(--white);
+
+        padding: 15px 20px;
+
+        font-size: 1.3em;
+
+        & :--login-inputs {
+            background: var(--primary-color-light);
+            color: var(--primary-text-color);
+
+            border: 0;
+            border-bottom: 3px solid var(--primary-color-light);
+
+            font-size: 1em;
+            margin-bottom: 5px;
+            padding: 5px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        & :--login-inputs:focus {
+             border-bottom: 3px solid var(--primary-color-dark);
+            outline: none;
+        }
+
+        & .login-button {
+            background: var(--primary-color);
+            color: var(--white);
+
+            margin-top: 10px;
+        }
+    }
+}

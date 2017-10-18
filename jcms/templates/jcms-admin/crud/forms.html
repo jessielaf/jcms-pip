@@ -5,13 +5,21 @@
 {% endif %}
 
 {% for field in form %}
-    <div class="row jcms-form">
-        <div class="offset-2 col-10">
-            <span class="text-danger small">{{ field.errors }}</span>
-        </div>
+    <div class="col-12 jcms-form-row">
+        {% if field.errors %}
+            <div class="{% if form_stack %}col-12{% else %}offset-3 col-9{% endif %}">
+                <span class="text-danger small">{{ field.errors }}</span>
+            </div>
+        {% endif %}
 
-        <div class="col-2">{{ field.label_tag }}</div>
+        {% if form_stack %}
+            <div class="col-12 label-row">{{ field.label_tag }}</div>
 
-        <div class="col-10">{{ field }}</div>
+            <div class="col-12">{{ field }}</div>
+        {% else %}
+            <div class="col-3">{{ field.label_tag }}</div>
+
+            <div class="col-9">{{ field }}</div>
+        {% endif %}
     </div>
 {% endfor %}
