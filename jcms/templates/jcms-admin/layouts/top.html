@@ -2,14 +2,12 @@
     <div class="col-2 brand">
         JCMS
     </div>
-    <div class="float-right col-2">
-        <div class="dropdown">
-            <a class="jcms-dropdown" data-dropdown_target="user-actions" href="#">{{ request.user }}</a>
+    <div class="user-menu col-2">
+        <a class="user-link jcms-dropdown col-12" data-dropdown_target="user-actions" href="#">{{ request.user }} {% include "icons/dropdown-caret.svg" %}</a>
 
-            <div class="dropdown-target" id="user-actions">
-                <a class="col-12" rel="noopener" target="_blank" href="/">{% include "icons/home.svg" %} Home</a>
-                <a class="col-12" href="{% url 'jcms:logoutUser' %}">{% include "icons/logout.svg" %} Logout</a>
-            </div>
+        <div class="dropdown-target col-12" id="user-actions">
+            <a class="col-12" rel="noopener" target="_blank" href="/">{% include "icons/home.svg" %} Home</a>
+            <a class="col-12" href="{% url 'jcms:logoutUser' %}">{% include "icons/logout.svg" %} Logout</a>
         </div>
     </div>
 </div>

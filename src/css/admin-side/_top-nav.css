@@ -9,4 +9,21 @@
     & .brand {
         border-right: solid 1px var(--black);
     }
+
+    & .user-menu {
+        text-align: center;
+
+        display: inline-block;
+        max-width: 150px;
+        float: right;
+
+        & .user-link {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+
+            vertical-align: center;
+            box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+        }
+    }
 }
