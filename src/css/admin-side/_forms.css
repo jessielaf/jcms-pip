@@ -1,3 +1,11 @@
 .jcms-form {
     height: 100%;
+
+    & .jcms-form-row {
+        margin-bottom: 10px;
+
+        & .label-row {
+            margin-bottom: 5px;
+        }
+    }
 }

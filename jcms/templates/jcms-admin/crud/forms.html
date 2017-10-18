@@ -5,7 +5,7 @@
 {% endif %}
 
 {% for field in form %}
-    <div class="col-12 jcms-form">
+    <div class="col-12 jcms-form-row">
         {% if field.errors %}
             <div class="{% if form_stack %}col-12{% else %}offset-3 col-9{% endif %}">
                 <span class="text-danger small">{{ field.errors }}</span>
@@ -13,7 +13,7 @@
         {% endif %}
 
         {% if form_stack %}
-            <div class="col-12">{{ field.label_tag }}</div>
+            <div class="col-12 label-row">{{ field.label_tag }}</div>
 
             <div class="col-12">{{ field }}</div>
         {% else %}

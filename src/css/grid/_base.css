@@ -18,6 +18,11 @@
     width: 33.33333%;
 }
 
+.col-4-5 {
+    @apply --column;
+    width: 37.5%;
+}
+
 .col-5 {
     @apply --column;
     width: 41.66667%;
@@ -78,6 +83,10 @@
     margin-left: 33.33333%;
 }
 
+.offset-4-5 {
+    margin-left: 37.5%;
+}
+
 .offset-5 {
     margin-left: 41.66667%;
 }
@@ -129,6 +138,11 @@
     .col-sm-4 {
         @apply --column;
         width: 33.33333%;
+    }
+
+    .col-sm-4-5 {
+        @apply --column;
+        width: 37.5%;
     }
 
     .col-sm-5 {
@@ -191,6 +205,10 @@
         margin-left: 33.33333%;
     }
 
+    .offset-sm-4-5 {
+        margin-left: 37.5%;
+    }
+
     .offset-sm-5 {
         margin-left: 41.66667%;
     }
@@ -244,6 +262,11 @@
     .col-m-4 {
         @apply --column;
         width: 33.33333%;
+    }
+
+    .col-m-4-5 {
+        @apply --column;
+        width: 37.5%;
     }
 
     .col-m-5 {
@@ -307,6 +330,10 @@
         margin-left: 33.33333%;
     }
 
+    .offset-m-4-5 {
+        margin-left: 37.5%;
+    }
+
     .offset-m-5 {
         margin-left: 41.66667%;
     }
@@ -360,6 +387,11 @@
     .col-lg-4 {
         @apply --column;
         width: 33.33333%;
+    }
+
+    .col-lg-4-5 {
+        @apply --column;
+        width: 37.5%;
     }
 
     .col-lg-5 {
@@ -422,6 +454,10 @@
         margin-left: 33.33333%;
     }
 
+    .offset-lg-4-5 {
+        margin-left: 37.5%;
+    }
+
     .offset-lg-5 {
         margin-left: 41.66667%;
     }
@@ -454,4 +490,3 @@
         margin-left: 100%;
     }
 }
-  
