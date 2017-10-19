@@ -12,4 +12,8 @@
     --secondary-color-light: #BFC1BC;
     --secondary-color-dark: #807E81;
     --secondary-text-color: var(--black);
+
+    --small-shadow: {
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    }
 }

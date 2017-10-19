@@ -1,5 +1,6 @@
 .top-nav {
     background: var(--primary-color-dark);
+    justify-content: space-between;
     color: var(--black);
 
     & > * {
@@ -12,18 +13,30 @@
 
     & .user-menu {
         text-align: center;
+        position: relative;
 
         display: inline-block;
         max-width: 150px;
         float: right;
 
         & .user-link {
+            @apply --small-shadow;
+
             display: inline-block;
             background: var(--primary-color);
             color: var(--white);
 
+            padding: 7px 0;
+
             vertical-align: center;
-            box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+
+            & .user {
+                font-size: 1.3em;
+            }
+        }
+
+        & .dropdown-target {
+            right: 5px;
         }
     }
 }

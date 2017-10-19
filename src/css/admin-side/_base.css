@@ -2,6 +2,7 @@
 
 body {
     color: var(--black);
+    background: var(--white);
 
     font-family: 'Palanquin', sans-serif;
     line-height: 150%;
@@ -18,24 +19,27 @@ a {
 }
 
 .icon {
-    max-width: 1em;
-    max-height: 1em;
+    max-width: 0.8em;
+    max-height: 0.8em;
 }
 
 .dropdown-target {
-    background: var(--primary-color-light);
+    @apply --small-shadow;
 
+    background: var(--primary-color-light);
+    z-index: 1000;
     margin-top: 7px;
 
-    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
 
     & a {
+        display: block;
         padding: 3px;
     }
 
     & a:hover {
         background: var(--primary-color);
+        color: var(--white);
     }
 }
