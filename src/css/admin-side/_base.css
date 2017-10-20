@@ -27,6 +27,7 @@ a {
     @apply --small-shadow;
 
     background: var(--primary-color-light);
+    color: var(--black);
     z-index: 1000;
     margin-top: 7px;
 
