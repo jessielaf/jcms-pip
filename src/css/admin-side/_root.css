@@ -2,9 +2,11 @@
     --white: #f2f2f2;
     --black: #090f0f;
 
-    --primary-color: #43646B;
-    --primary-color-light: #C5D6E0;
-    --primary-color-dark: #435770;
+    --primary-color-lighter: #8692A2;
+    --primary-color-light: #5F7086;
+    --primary-color: #435770;
+    --primary-color-dark: #2D3E55;
+    --primary-color-darker: #1A2F49;
     --primary-text-color: var(--black);
 
     --secondary-color: #818B8A;

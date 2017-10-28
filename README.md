@@ -120,6 +120,7 @@ from jcms.helpers.menu_item import MenuItem as SingleMenuItem
 class MenuItem(GenericMenuItem, object):
     slug = 'dishes'
     name = 'Dishes'
+    icon = 'dish'
 
     items = [
         SingleMenuItem('Dishes', 'dishList'),
@@ -131,6 +132,7 @@ class MenuItem(GenericMenuItem, object):
 You can give the following options:
 * slug = The slug used in the url
 * name = The name seen on the menu item
+* icon = The svg used for the menu item. If there is no icon given it uses the fallback svg
 * items = All the options in the menu item. This HAS to be a SingleMenuItem Object.
 
 ### Adding your menu item to jcms

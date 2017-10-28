@@ -1,8 +1,63 @@
 .side-nav {
-    background: var(--primary-color-dark);
+    background: var(--primary-color);
     color: var(--white);
+
+    padding-left: 10px;
 
     min-height: 100vh;
     height: 100%;
     width: 100%;
+
+    & .side-nav-item {
+        margin-bottom: 15px;
+
+        & .header {
+            font-size: 1.1em;
+            font-weight: 500;
+
+            padding-bottom: 5px;
+        }
+
+        & .menu-item {
+            padding-left: 15px;
+
+            & .menu-header {
+                padding: 7px;
+                width: 100%;
+                display: inline-block;
+
+                border-bottom: 1px solid var(--primary-color-lighter);
+
+                @nest &:hover {
+                    background: var(--primary-color-dark);
+                }
+            }
+
+            & .menu-target {
+                display: none;
+                width: 100%;
+                background: var(--primary-color-light);
+
+                & .option {
+                    padding: 5px 0 5px 15px;
+                    border-left: 4px solid var(--primary-color-light);
+                    transition: 0.1s;
+
+                    @nest &:hover {
+                        border-left: 4px solid var(--primary-color-darker);
+                    }
+                }
+            }
+        }
+
+        & .menu-selected {
+            & .menu-header {
+                background: var(--primary-color-dark);
+            }
+
+            & .menu-target {
+                display: block;
+            }
+        }
+    }
 }

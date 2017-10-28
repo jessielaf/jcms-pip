@@ -12,6 +12,10 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+
+    @nest &:hover {
+        cursor: pointer;
+    }
 }
 
 .hidden {
@@ -19,28 +23,27 @@ a {
 }
 
 .icon {
-    max-width: 0.8em;
-    max-height: 0.8em;
+    max-width: 1em;
+    max-height: 1em;
+
+    vertical-align: middle;
 }
 
 .dropdown-target {
     @apply --small-shadow;
 
-    background: var(--primary-color-light);
-    color: var(--black);
+    background: var(--primary-color);
+    color: var(--white);
     z-index: 1000;
     margin-top: 7px;
 
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-
     & a {
         display: block;
-        padding: 3px;
-    }
+        padding: 3px 5px;
 
-    & a:hover {
-        background: var(--primary-color);
-        color: var(--white);
+        @nest &:hover {
+            background: var(--primary-color-light);
+            color: var(--white);
+        }
     }
 }

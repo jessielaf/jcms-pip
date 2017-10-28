@@ -1,3 +1,7 @@
+.col-0 {
+    @apply --column-none;
+}
+
 .col-1 {
     @apply --column;
     width: 8.33333%;
@@ -120,6 +124,10 @@
 }
 
 @media (--small) {
+    .col-sm-0 {
+        @apply --column-none;
+    }
+
     .col-sm-1 {
         @apply --column;
         width: 8.33333%;
@@ -243,6 +251,9 @@
 }
 
 @media (--medium) {
+    .col-m-0 {
+        @apply --column-none;
+    }
 
     .col-m-1 {
         @apply --column;
@@ -368,6 +379,9 @@
 }
 
 @media (--large) {
+    .col-lg-0 {
+        @apply --column-none;
+    }
 
     .col-lg-1 {
         @apply --column;

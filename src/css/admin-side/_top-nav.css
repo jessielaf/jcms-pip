@@ -1,15 +1,10 @@
 .top-nav {
-    background: var(--primary-color);
+    background: var(--secondary-color-lighter);
     justify-content: space-between;
     color: var(--white);
 
-    & > * {
-        padding: 10px;
-    }
-
     & .brand {
-        background: var(--primary-color-dark);
-        border-right: solid 1px var(--black);
+        background: var(--primary-color);
     }
 
     & .user-menu {
@@ -17,8 +12,10 @@
         position: relative;
 
         display: inline-block;
-        max-width: 150px;
+        max-width: 120px;
         float: right;
+
+        padding: 7px;
 
         & .user-link {
             @apply --small-shadow;
@@ -26,12 +23,12 @@
             display: inline-block;
             background: var(--primary-color-dark);
 
-            padding: 7px 0;
+            padding: 3px 0;
 
             vertical-align: center;
 
             & .user {
-                font-size: 1.3em;
+                font-size: 1.1em;
             }
         }
 
