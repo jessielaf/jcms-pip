@@ -1,0 +1,11 @@
+.table-striped {
+    & tbody {
+        & tr:nth-of-type(odd) {
+            background: var(--secondary-color-light);
+        }
+
+        & tr:nth-of-type(even) {
+            background: var(--white);
+        }
+    }
+}

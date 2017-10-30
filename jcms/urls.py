@@ -15,7 +15,7 @@ crud_models = [
 urlpatterns = [
     # login views
     url(r'^$', loginViews.LoginView.as_view(), name="login"),
-    url(r'^logout/$', loginViews.logoutUser, name="logoutUser"),
+    url(r'^logout/$', loginViews.logout_user, name="logoutUser"),
 ]
 
 urlpatterns += functions.add_crud(crud_models)

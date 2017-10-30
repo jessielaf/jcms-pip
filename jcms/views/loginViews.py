@@ -30,7 +30,6 @@ class LoginView(TemplateView):
                 return redirect('jcms:optionList')
 
 
-def logoutUser(request):
+def logout_user(request):
     logout(request)
-    print('logout')
     return redirect('jcms:login')
