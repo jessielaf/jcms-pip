@@ -4,7 +4,7 @@
     <div class="login-screen align-items-center">
 
         <div class="login-form offset-1 col-10 offset-m-4 col-m-4 offset-lg-4-5 col-lg-3">
-            {% include 'jcms-admin/layouts/messages.html' %}
+            {% include 'jcms-admin/layouts/messages.html' with extra_class="login-alert" %}
             <form action="{% url "jcms:login" %}" method="post" class="jcms-form ">
                 {% csrf_token %}
                 {% include 'jcms-admin/crud/forms.html' with form_stack="true" %}

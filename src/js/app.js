@@ -1,19 +1,15 @@
 jQuery = $ = require('jquery');
 
 $(document).ready(function () {
-    var menu_selected_class = 'menu-selected';
+    var menuSelectedClass = 'menu-selected';
 
     $('.menu-item').on('click', function () {
-        var opening = true;
-
-        if ($(this).hasClass(menu_selected_class)) {
-            opening = false;
+        if ($(this).hasClass(menuSelectedClass)) {
+            $(this).removeClass(menuSelectedClass);
+            return;
         }
 
-        $('.' + menu_selected_class).removeClass(menu_selected_class);
-
-        if (opening) {
-            $(this).addClass(menu_selected_class)
-        }
+        $('.' + menuSelectedClass).removeClass(menuSelectedClass);
+        $(this).addClass(menuSelectedClass)
     });
 });

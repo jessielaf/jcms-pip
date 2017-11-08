@@ -37,5 +37,9 @@
 
             margin-top: 10px;
         }
+
+        & .login-alert {
+            max-width: 400px;
+        }
     }
 }

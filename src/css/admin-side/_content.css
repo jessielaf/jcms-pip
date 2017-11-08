@@ -22,21 +22,4 @@
             }
         }
     }
-
-
-    & .btn {
-        border: 0;
-        border-radius: 3px;
-        font-weight: 600;
-        background: inherit;
-        display: inline-block;
-    }
-
-    & .danger {
-        color: var(--red);
-    }
-
-    & .edit {
-        color: var(--primary-color);
-    }
 }
