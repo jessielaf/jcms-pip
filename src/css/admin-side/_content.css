@@ -28,14 +28,11 @@
         padding: 0.5em 1em;
     }
 
-    & .form {
-        display: inline;
-
-        & button {
-            font-family: inherit;
-            font-size: 1em;
-            border: 0;                   
-        }
+    & button.btn {
+        font-family: inherit;
+        font-size: 1em;
+        border: 0;
+        background: inherit;
     }
 
     & .danger {
