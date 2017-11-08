@@ -16,10 +16,10 @@
             & tr:nth-of-type(even) {
                 background: var(--white);
             }
+        }
 
-            & td {
-
-            }
+        & td {
+            padding-left: 10px;
         }
     }
 }
