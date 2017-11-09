@@ -1,7 +1,12 @@
 <div class="top-nav col-12">
-    <div class="col-2 brand">
+    <div class="col-0 col-m-2 brand">
         JCMS
     </div>
+    
+    <div class="mobile-menu">
+        {% include "icons/hamburger.svg" %}
+    </div>
+
     <div class="user-menu col-2">
         <a class="user-link jcms-dropdown align-items-center col-12" data-dropdown_target="user-actions"
            href="#"><span class="user">{{ request.user|title }}</span> {% include "icons/dropdown-caret.svg" %}</a>

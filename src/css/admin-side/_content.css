@@ -2,15 +2,37 @@
     height: 100%;
     padding: 0 20px;
 
+    @nest &.hidden-content {
+        display: none;
+    }
+
+    & .title {
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
     & .table {
         border-spacing: unset;
         width: 100%;
+
+        display: block;
+        overflow-x: scroll;
     }
 
     & .table-striped {
+        border-top: 1px solid var(--gray);
+
+        & thead {
+            font-size: 1.2em;
+
+            & tr td {
+                padding: 10px;
+            }
+        }
+
         & tbody {
             & tr:nth-of-type(odd) {
-                background: var(--secondary-color-light);
+                background: var(--gray);
             }
 
             & tr:nth-of-type(even) {

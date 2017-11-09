@@ -15,4 +15,9 @@
         background: var(--red);
         color: var(--white);
     }
+    
+    @nest &.success {
+        background: var(--green);
+        color: var(--white);
+    }
 }

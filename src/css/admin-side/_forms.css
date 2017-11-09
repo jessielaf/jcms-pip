@@ -1,17 +1,41 @@
-.jcms-form {
-    & .jcms-form-row {
-        margin-bottom: 10px;
+@custom-selector :--all-inputs input, select;
+@custom-selector :--text-inputs input[type="text"], input[type="password"], input[type="email"];
 
-        & .label-row {
-            margin-bottom: 5px;
+.create-edit-form {
+    width: 100%;
+
+    & > div {
+        margin-top: 7px;
+        margin-bottom: 7px;
+    }
+
+    & :--all-inputs {
+        width: 100%;
+    }
+
+    & :--text-inputs {
+        background: var(--gray);
+        padding: 7px;
+        
+        border: 0;
+        border-bottom: 2px solid var(--gray);
+
+        @nest &:focus {
+            border-bottom: solid 2px var(--primary-color);
+            outline: none;
         }
     }
 
-    & .btn {
-        font-family: 'Palanquin', sans-serif;
-        font-size: 0.8em;
+    & input[type='checkbox'] {
+        width: auto;
+        cursor: pointer;
+    }
 
-        border: 0;
-        padding: 5px 15px;
+    & .submit-button {
+        padding: 5px;
+
+        font-weight: 500;
+        font-size: 1em;
+        letter-spacing: 1px;
     }
 }

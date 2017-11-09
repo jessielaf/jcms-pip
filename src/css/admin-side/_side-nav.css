@@ -8,6 +8,17 @@
     height: 100%;
     width: 100%;
 
+    @nest &.show-menu {
+        @media (--medium-down) {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            padding-top: 15px;
+        }
+    }
+
     & .side-nav-item {
         margin-bottom: 15px;
 
