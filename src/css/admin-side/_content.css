@@ -17,6 +17,10 @@
 
         display: block;
         overflow-x: scroll;
+
+        @media (--medium) {
+            display: table;
+        }
     }
 
     & .table-striped {

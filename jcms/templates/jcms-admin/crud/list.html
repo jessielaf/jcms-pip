@@ -35,7 +35,7 @@
                             <a class="btn edit" href="{% url "Edit"|crud_url:view.model pk=object.id %}">
                                 {% include "icons/edit.svg" %} Edit
                             </a>
-                            <button class="btn danger" type="submit">{% include "icons/delete.svg" %}<span> Delete</span></button>
+                            <input class="btn danger" type="submit" value="">{% include "icons/delete.svg" %}<span> Delete</span></button>
                         </form>
                     </td>
                 </tr>

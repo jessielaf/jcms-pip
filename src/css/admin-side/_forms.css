@@ -5,8 +5,7 @@
     width: 100%;
 
     & > div {
-        margin-top: 7px;
-        margin-bottom: 7px;
+        margin-bottom: 15px;
     }
 
     & :--all-inputs {
@@ -16,6 +15,8 @@
     & :--text-inputs {
         background: var(--gray);
         padding: 7px;
+
+        font-size: 1em;
         
         border: 0;
         border-bottom: 2px solid var(--gray);
