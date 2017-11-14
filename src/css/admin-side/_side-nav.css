@@ -3,13 +3,22 @@
     color: var(--white);
 
     padding-left: 10px;
+    display: block;
 
     min-height: 100vh;
     height: 100%;
-    width: 100%;
+
+    @nest &.show-menu {
+        @media (--medium-down) {
+            width: 100%;
+
+            padding-top: 15px;
+        }
+    }
 
     & .side-nav-item {
-        margin-bottom: 15px;
+        margin-bottom: 30px;
+        width: 100%;
 
         & .header {
             font-size: 1.1em;

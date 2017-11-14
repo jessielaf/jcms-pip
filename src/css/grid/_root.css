@@ -3,8 +3,12 @@
     @custom-media --medium (width >= 767px);
     @custom-media --large (width >= 1200px);
 
+    @custom-media --small-down (width < 480px);
+    @custom-media --medium-down (width < 767px);
+    @custom-media --large-down (width < 1200px);
+
     --column {
-        display: inline-flex;
+        display: flex;
         flex-wrap: wrap;
     }
     
@@ -12,4 +16,3 @@
         display: none;
     }
 }
-  

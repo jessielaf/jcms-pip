@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Palanquin');
+@import url('https://fonts.googleapis.com/css?family=Barlow');
+@custom-selector :--submit-inputs input[type='submit'], button;
 
 body {
     color: var(--black);
     background: var(--white);
 
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Barlow', sans-serif;;
     line-height: 150%;
     margin: 0;
 }
@@ -44,6 +45,54 @@ a {
         @nest &:hover {
             background: var(--primary-color-light);
             color: var(--white);
+        }
+    }
+}
+
+.form {
+    display: inline;
+}
+
+.btn {
+    background: inherit;
+    display: inline-block;
+    padding: 3px 5px;
+    transition: 0.1s;
+
+    color: inherit;
+    font-family: inherit;
+    font-weight: 600;
+    
+    border: 0;    
+    border-radius: 2px;
+
+    @nest &.danger {
+        color: var(--red);
+        border: solid 2px var(--red);
+
+        @nest &:hover {
+            color: var(--white);
+            background: var(--red);
+        }
+    }
+
+    @nest &.edit {
+        color: var(--primary-color);
+        border: solid 2px var(--primary-color);
+
+        @nest &:hover {
+            color: var(--white);
+            background: var(--primary-color);
+        }
+    }
+
+    @nest &.success {
+        color: var(--green);
+        border: solid 2px var(--green);
+
+        @nest &:hover {
+            color: var(--white);
+            background: var(--green);
         }
     }
 }

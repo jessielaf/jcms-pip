@@ -1,19 +1,41 @@
 jQuery = $ = require('jquery');
 
 $(document).ready(function () {
-    var menu_selected_class = 'menu-selected';
+    userMenu();
+    mobileMenu();
 
-    $('.menu-item').on('click', function () {
-        var opening = true;
+    function userMenu() {
 
-        if ($(this).hasClass(menu_selected_class)) {
-            opening = false;
-        }
+        $('.menu-item').on('click', function () {
+            var menuSelectedClass = 'menu-selected';
+            
+            if ($(this).hasClass(menuSelectedClass)) {
+                $(this).removeClass(menuSelectedClass);
+                return;
+            }
 
-        $('.' + menu_selected_class).removeClass(menu_selected_class);
+            $('.' + menuSelectedClass).removeClass(menuSelectedClass);
+            $(this).addClass(menuSelectedClass)
+        });
+    }
 
-        if (opening) {
-            $(this).addClass(menu_selected_class)
-        }
-    });
+    function mobileMenu() {
+
+        $('.mobile-menu').on('click', function () {
+            var sideNav = $('.side-nav');
+            var content = $('.content');
+            
+            var menuOpenClass = 'show-menu';
+            var hiddenContent = 'hidden-content';
+
+            if (sideNav.hasClass(menuOpenClass)) {
+                sideNav.removeClass(menuOpenClass);
+                content.removeClass(hiddenContent);
+            } else {
+                sideNav.addClass(menuOpenClass);
+                content.addClass(hiddenContent);
+            }
+        });
+    }
+
 });

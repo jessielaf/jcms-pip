@@ -8,38 +8,38 @@
 {% endblock %}
 
 {% block content_title %}
-    All {{ view.model|get_model_name }} objects
-    <a class="btn btn-success" href="{% url "Create"|crud_url:view.model %}">{% include "icons/add.svg" %} Add new</a>
+    <span class="title">All {{ view.model|get_model_name }} objects</span>
+    <a class="btn success" href="{% url "Create"|crud_url:view.model %}">{% include "icons/add.svg" %} Add new</a>
 {% endblock %}
 
 {% block content %}
     <table class="table table-striped">
-        <thead class="jcms-table-head">
-        <tr>
-            {% for field in view.fields %}
-                <td><b>{{ field|title }}</b></td>
-            {% endfor %}
-            <td><b>Actions</b></td>
-        </tr>
-        </thead>
-        <tbody>
-        {% for object in object_list %}
+        <thead>
             <tr>
                 {% for field in view.fields %}
-                    <td>{{ object|get_object_attr:field }}</td>
+                    <td><b>{{ field|title }}</b></td>
                 {% endfor %}
-                <td>
-                    <a class="btn btn-primary" href="{% url "Edit"|crud_url:view.model pk=object.id %}">
-                       {% include "icons/edit.svg" %} Edit
-                    </a>
-                    <form class="d-md-inline" action="{% url "Delete"|crud_url:view.model pk=object.id %}"
-                          method="POST">
-                        {% csrf_token %}
-                        <button class="btn btn-danger" type="submit">{% include "icons/delete.svg" %} Delete</button>
-                    </form>
-                </td>
+                <td><b>Actions</b></td>
             </tr>
-        {% endfor %}
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+                <tr>
+                    {% for field in view.fields %}
+                        <td>{{ object|get_object_attr:field }}</td>
+                    {% endfor %}
+                    <td>
+                        <form class="form" action="{% url "Delete"|crud_url:view.model pk=object.id %}"
+                            method="POST">
+                            {% csrf_token %}
+                            <a class="btn edit" href="{% url "Edit"|crud_url:view.model pk=object.id %}">
+                                {% include "icons/edit.svg" %} Edit
+                            </a>
+                            <input class="btn danger" type="submit" value="">{% include "icons/delete.svg" %}<span> Delete</span></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}

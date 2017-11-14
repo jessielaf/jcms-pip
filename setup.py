@@ -14,7 +14,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='0.0.6',
+    version='0.0.7',
 
     description='This is a cms written in Django and made by JCB Development',
     long_description=long_description,
@@ -46,7 +46,7 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='sample setuptools development',
+    keywords='cms admin development content management system',
 
     packages=find_packages(),
 
