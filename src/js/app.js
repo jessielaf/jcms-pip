@@ -1,4 +1,5 @@
 jQuery = $ = require('jquery');
+require('./dynamicContent.js');
 
 $(document).ready(function () {
     userMenu();
@@ -37,5 +38,4 @@ $(document).ready(function () {
             }
         });
     }
-
 });
