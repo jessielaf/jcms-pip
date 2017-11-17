@@ -55,16 +55,20 @@ a {
 
 .btn {
     background: inherit;
-    display: inline-block;
     padding: 3px 5px;
     transition: 0.1s;
 
     color: inherit;
     font-family: inherit;
     font-weight: 600;
+    font-size: 1em;
     
     border: 0;    
     border-radius: 2px;
+
+    @nest &:hover {
+        cursor: pointer;
+    }
 
     @nest &.danger {
         color: var(--red);

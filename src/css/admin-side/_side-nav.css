@@ -8,10 +8,15 @@
     min-height: 100vh;
     height: 100%;
 
+    @media (--medium-down) {
+        display: none;
+    }
+
     @nest &.show-menu {
         @media (--medium-down) {
             width: 100%;
 
+            display: block;
             padding-top: 15px;
         }
     }
