@@ -52,8 +52,10 @@ setup(
 
     package_data={
         'static': [
-            'jcms.css',
-            'jcms.app'
+            'jcms.app.bundle.js',
+            'jcsm.dropdown.js',
+            'jcms.style.css',
+            'jcms.grid.css'
         ],
         'templates': {
             'icons': [
