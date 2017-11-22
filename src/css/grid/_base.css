@@ -1,70 +1,70 @@
 .col-0 {
-    @apply --column-none;
+    @apply --col-0;
 }
 
 .col-1 {
     @apply --column;
-    width: 8.33333%;
+    @apply --col-1;
 }
 
 .col-2 {
     @apply --column;
-    width: 16.66667%;
+    @apply --col-2;
 }
 
 .col-3 {
     @apply --column;
-    width: 25%;
+    @apply --col-3;
 }
 
 .col-4 {
     @apply --column;
-    width: 33.33333%;
+    @apply --col-4;
 }
 
 .col-4-5 {
     @apply --column;
-    width: 37.5%;
+    @apply --col-4-5;
 }
 
 .col-5 {
     @apply --column;
-    width: 41.66667%;
+    @apply --col-5;
 }
 
 .col-6 {
     @apply --column;
-    width: 50%;
+    @apply --col-6;
 }
 
 .col-7 {
     @apply --column;
-    width: 58.33333%;
+    @apply --col-7;
 }
 
 .col-8 {
     @apply --column;
-    width: 66.66667%;
+    @apply --col-8;
 }
 
 .col-9 {
     @apply --column;
-    width: 75%;
+    @apply --col-9;
 }
 
 .col-10 {
     @apply --column;
-    width: 83.33333%;
+    @apply --col-10;
 }
 
 .col-11 {
     @apply --column;
-    width: 91.66667%;
+    @apply --col-11;
 }
 
 .col-12 {
     @apply --column;
-    width: 100%;
+    @apply --col-12;
 }
 
 .offset-0 {
@@ -125,72 +125,72 @@
 
 @media (--small) {
     .col-sm-0 {
-        @apply --column-none;
+        @apply --col-0;
     }
 
     .col-sm-1 {
         @apply --column;
-        width: 8.33333%;
+        @apply --col-1;
     }
 
     .col-sm-2 {
         @apply --column;
-        width: 16.66667%;
+        @apply --col-2;
     }
 
     .col-sm-3 {
         @apply --column;
-        width: 25%;
+        @apply --col-3;
     }
 
     .col-sm-4 {
         @apply --column;
-        width: 33.33333%;
+        @apply --col-4;
     }
 
     .col-sm-4-5 {
         @apply --column;
-        width: 37.5%;
+        @apply --col-4-5;
     }
 
     .col-sm-5 {
         @apply --column;
-        width: 41.66667%;
+        @apply --col-5;
     }
 
     .col-sm-6 {
         @apply --column;
-        width: 50%;
+        @apply --col-6;
     }
 
     .col-sm-7 {
         @apply --column;
-        width: 58.33333%;
+        @apply --col-7;
     }
 
     .col-sm-8 {
         @apply --column;
-        width: 66.66667%;
+        @apply --col-8;
     }
 
     .col-sm-9 {
         @apply --column;
-        width: 75%;
+        @apply --col-9;
     }
 
     .col-sm-10 {
         @apply --column;
-        width: 83.33333%;
+        @apply --col-10;
     }
 
     .col-sm-11 {
         @apply --column;
-        width: 91.66667%;
+        @apply --col-11;
     }
 
     .col-sm-12 {
         @apply --column;
-        width: 100%;
+        @apply --col-12;
     }
 
     .offset-sm-0 {
@@ -252,72 +252,72 @@
 
 @media (--medium) {
     .col-m-0 {
-        @apply --column-none;
+        @apply --col-0;
     }
 
     .col-m-1 {
         @apply --column;
-        width: 8.33333%;
+        @apply --col-1;
     }
 
     .col-m-2 {
         @apply --column;
-        width: 16.66667%;
+        @apply --col-2;
     }
 
     .col-m-3 {
         @apply --column;
-        width: 25%;
+        @apply --col-3;
     }
 
     .col-m-4 {
         @apply --column;
-        width: 33.33333%;
+        @apply --col-4;
     }
 
     .col-m-4-5 {
         @apply --column;
-        width: 37.5%;
+        @apply --col-4-5;
     }
 
     .col-m-5 {
         @apply --column;
-        width: 41.66667%;
+        @apply --col-5;
     }
 
     .col-m-6 {
         @apply --column;
-        width: 50%;
+        @apply --col-6;
     }
 
     .col-m-7 {
         @apply --column;
-        width: 58.33333%;
+        @apply --col-7;
     }
 
     .col-m-8 {
         @apply --column;
-        width: 66.66667%;
+        @apply --col-8;
     }
 
     .col-m-9 {
         @apply --column;
-        width: 75%;
+        @apply --col-9;
     }
 
     .col-m-10 {
         @apply --column;
-        width: 83.33333%;
+        @apply --col-10;
     }
 
     .col-m-11 {
         @apply --column;
-        width: 91.66667%;
+        @apply --col-11;
     }
 
     .col-m-12 {
         @apply --column;
-        width: 100%;
+        @apply --col-12;
     }
 
     .offset-m-0 {
@@ -380,72 +380,72 @@
 
 @media (--large) {
     .col-lg-0 {
-        @apply --column-none;
+        @apply --col-0;
     }
 
     .col-lg-1 {
         @apply --column;
-        width: 8.33333%;
+        @apply --col-1;
     }
 
     .col-lg-2 {
         @apply --column;
-        width: 16.66667%;
+        @apply --col-2;
     }
 
     .col-lg-3 {
         @apply --column;
-        width: 25%;
+        @apply --col-3;
     }
 
     .col-lg-4 {
         @apply --column;
-        width: 33.33333%;
+        @apply --col-4;
     }
 
     .col-lg-4-5 {
         @apply --column;
-        width: 37.5%;
+        @apply --col-4-5;
     }
 
     .col-lg-5 {
         @apply --column;
-        width: 41.66667%;
+        @apply --col-5;
     }
 
     .col-lg-6 {
         @apply --column;
-        width: 50%;
+        @apply --col-6;
     }
 
     .col-lg-7 {
         @apply --column;
-        width: 58.33333%;
+        @apply --col-7;
     }
 
     .col-lg-8 {
         @apply --column;
-        width: 66.66667%;
+        @apply --col-8;
     }
 
     .col-lg-9 {
         @apply --column;
-        width: 75%;
+        @apply --col-9;
     }
 
     .col-lg-10 {
         @apply --column;
-        width: 83.33333%;
+        @apply --col-10;
     }
 
     .col-lg-11 {
         @apply --column;
-        width: 91.66667%;
+        @apply --col-11;
     }
 
     .col-lg-12 {
         @apply --column;
-        width: 100%;
+        @apply --col-12;
     }
 
     .offset-lg-0 {
