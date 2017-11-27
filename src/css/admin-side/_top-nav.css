@@ -58,6 +58,8 @@
 
         & .dropdown-target {
             right: 5px;
+
+            width: 100%;
         }
     }
 }
