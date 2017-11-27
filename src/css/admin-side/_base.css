@@ -5,8 +5,7 @@ body {
     color: var(--black);
     background: var(--white);
 
-    font-family: 'Barlow', sans-serif;;
-    line-height: 150%;
+    font-family: 'Barlow', sans-serif;
     margin: 0;
 }
 
@@ -57,6 +56,8 @@ a {
     background: inherit;
     padding: 3px 5px;
     transition: 0.1s;
+
+    display: inline-block;
 
     color: inherit;
     font-family: inherit;
