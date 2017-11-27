@@ -37,8 +37,6 @@
         position: relative;
 
         display: inline-block;
-        min-width: 100px;
-        max-width: 120px;
 
         padding: 7px;
 
@@ -48,7 +46,7 @@
             display: inline-block;
             background: var(--primary-color-dark);
 
-            padding: 3px 0;
+            padding: 3px 4px;
 
             vertical-align: center;
 
