@@ -49,7 +49,7 @@
 
             padding: 3px 4px;
 
-            vertical-align: center;
+            width: 100%;
 
             & .user {
                 font-size: 1.1em;
