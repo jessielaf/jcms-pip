@@ -14,7 +14,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='1.0.0',
+    version='1.1.0',
 
     description='This is a cms written in Django and made by JCB Development',
     long_description=long_description,
@@ -50,40 +50,5 @@ setup(
 
     packages=find_packages(),
 
-    package_data={
-        'static': [
-            'jcms.app.bundle.js',
-            'jcsm.dropdown.js',
-            'jcms.style.css',
-            'jcms.grid.css'
-        ],
-        'templates': {
-            'icons': [
-                'detail.html',
-                'edit_or_create.html',
-                'forms.html',
-                'list.html'
-            ],
-            'jcms-admin': {
-                'crud': [
-                    'detail.html',
-                    'edit_or_create.html',
-                    'forms.html',
-                    'list.html'
-                ],
-                'layouts': [
-                    'admin.html',
-                    'base.html',
-                    'messages.html',
-                    'side-nav.html',
-                    'top.html'
-                ],
-                'login': {
-                    'login.html'
-                }
-            },
-            'README.md': ''
-        }
-    }
-
+    include_package_data=True,
 )
