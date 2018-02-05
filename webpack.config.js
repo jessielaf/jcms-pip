@@ -7,9 +7,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src/js'),
   entry: {
     'app.bundle.js': './app.js',
-    'style.css': '../css/style.css',
-    'grid.css': '../css/grid.css',
-    'dropdown.js': './dropdown.js'
+    'style.css': '../css/style.css'
   },
   module: {
     loaders: [

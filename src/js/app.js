@@ -2,45 +2,8 @@ jQuery = $ = require('jquery');
 require('trumbowyg');
 
 $(document).ready(function () {
-    userMenu();
-    mobileMenu();
-    setCkeditor();
+    require('./components/dropdown.js');
+    require('./components/menu-items.js');
+    require('./components/mobile-menu.js');
+    require('./components/text-editor.js');
 });
-
-function setCkeditor() {
-    $('textarea').trumbowyg({
-        svgPath: "https://raw.githubusercontent.com/Alex-D/Trumbowyg/master/dist/ui/icons.svg"
-    });
-}
-
-function userMenu() {
-    $('.menu-item').on('click', function () {
-        var menuSelectedClass = 'menu-selected';
-
-        if ($(this).hasClass(menuSelectedClass)) {
-            $(this).removeClass(menuSelectedClass);
-            return;
-        }
-
-        $('.' + menuSelectedClass).removeClass(menuSelectedClass);
-        $(this).addClass(menuSelectedClass)
-    });
-}
-
-function mobileMenu() {
-    $('.mobile-menu').on('click', function () {
-        var sideNav = $('.side-nav');
-        var content = $('.content');
-
-        var menuOpenClass = 'show-menu';
-        var hiddenContent = 'hidden-content';
-
-        if (sideNav.hasClass(menuOpenClass)) {
-            sideNav.removeClass(menuOpenClass);
-            content.removeClass(hiddenContent);
-        } else {
-            sideNav.addClass(menuOpenClass);
-            content.addClass(hiddenContent);
-        }
-    });
-}
