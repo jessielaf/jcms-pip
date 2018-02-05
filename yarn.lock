@@ -2975,6 +2975,10 @@ tough-cookie@~2.3.0:
   dependencies:
     punycode "^1.4.1"
 
+trumbowyg@^2.9.4:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/trumbowyg/-/trumbowyg-2.9.4.tgz#1537c3a2eca0a02817a4c399670daed7fa36e411"
+
 tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"

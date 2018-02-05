@@ -38,7 +38,8 @@
             & .menu-header {
                 padding: 7px;
                 width: 100%;
-                display: inline-block;
+                display: inline-flex;
+                align-items: center;
 
                 border-bottom: 1px solid var(--primary-color-lighter);
 

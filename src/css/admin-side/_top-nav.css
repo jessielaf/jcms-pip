@@ -44,7 +44,8 @@
         & .user-link {
             @apply --small-shadow;
 
-            display: inline-block;
+            display: flex;
+            justify-content: center;
             background: var(--primary-color-dark);
 
             padding: 3px 4px;
@@ -58,8 +59,14 @@
 
         & .dropdown-target {
             right: 5px;
-
             width: 100%;
+
+            & a {
+                line-height: 150%;
+
+                display: flex;
+                align-items: center;
+            }
         }
     }
 }
