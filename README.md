@@ -145,13 +145,30 @@ JCMS_APPS = ['practice-app']
 
 This are only the apps that should be in Jcms.
 
+## Icons
+You can use these icons like this:
+```
+{% include "icons/[icon-name].svg" %}
+```
+
+The icons you can use are =:
+- add
+- delete
+- dropdown-caret
+- edit
+- groups
+- hamburger
+- home
+- logout
+- options
+- standard-menu-item
+- users
+
 ## Templatetags
 
 These are the template tags that you can use that are in Jcms
 
 ### add_item
-
-@register.simple_tag
 
 Add a item to an array
 
@@ -162,8 +179,6 @@ Add a item to an array
 
 ### crud_url
 
-@register.filter
-
 Load a crud url based upon the model
 
 ```
@@ -171,9 +186,16 @@ Load a crud url based upon the model
 {% url "Create"|crud_url:model %}
 ```
 
-### get_model_name
+### get_model_items
 
-@register.filter
+Get menu items for the cms
+
+```
+{% load get_menu_items %}
+{% get_menu_items as menu_items %}
+```
+
+### get_model_name
 
 Gets the name of a model
 
@@ -184,18 +206,12 @@ Gets the name of a model
 
 ### get_object_attr
 
-@register.filter
-
 Gets the attribute of a object dynamically
 
 ```
 {% load get_object_attr %}
 {{ object|get_object_attr:field }}
 ```
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Deployment
 
