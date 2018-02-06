@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-12 col-m-10 content">
-            <h2 class="col-12">{% block content_title %}{% endblock %}</h2>
+            <div class="content-title">{% block content_title %}{% endblock %}</div>
 
             {% include "jcms-admin/layouts/messages.html" %}
             {% block content %}{% endblock %}
