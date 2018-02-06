@@ -163,6 +163,7 @@ The icons you can use are =:
 - options
 - standard-menu-item
 - users
+- cancel
 
 ## Templatetags
 

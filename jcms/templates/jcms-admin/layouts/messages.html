@@ -1,7 +1,7 @@
 {% if messages %}
     {% for message in messages %}
         <div class="alert {{ message.tags|default:" " }} {{ extra_class }}">
-            {{ message }}
+            <span>{{ message }}</span> {% include "icons/cancel.svg" %}
         </div>
     {% endfor %}
 {% endif %}

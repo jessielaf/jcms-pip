@@ -6,4 +6,5 @@ $(document).ready(function () {
     require('./components/menu-items.js');
     require('./components/mobile-menu.js');
     require('./components/text-editor.js');
+    require('./components/cancel-message.js');
 });
