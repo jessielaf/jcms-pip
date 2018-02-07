@@ -111,7 +111,7 @@ def get_search_queryset(crud):
     search_term = crud.request.GET.get('search')
     if search_term:
         print(search_term)
-        queries = [Q(**{f: search_term}) for f in crud.fields]
+        queries = [Q(**{f + '__icontains': search_term}) for f in crud.fields]
         qs = Q()
         for query in queries:
             qs = qs | query
