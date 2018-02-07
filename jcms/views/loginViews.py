@@ -10,7 +10,7 @@ class LoginView(TemplateView):
 
     def get(self, request):
         form = LoginForm()
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             return redirect('jcms:optionList')
 
         return render(request, self.template_name, {'form': form})

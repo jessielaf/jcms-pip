@@ -19,7 +19,7 @@ def add_crud(cruds):
     crud_urls = []
 
     for crud_model in cruds:
-        crud_urls += crud_model.get_crud_urls(crud_model)
+        crud_urls += crud_model.get_crud_urls()
     return crud_urls
 
 
