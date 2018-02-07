@@ -23,10 +23,6 @@ class JcmsCrud(object):
         self.icon = icon
         self.model_name = model.__name__.lower()
 
-    # Mixin with permission and login
-    class PermissionMixin(LoginRequiredMixin, PermissionRequiredMixin):
-        pass
-
     # Gets all url objects for to create the urls
     def get_crud_urls(self):
         return [
@@ -38,13 +34,28 @@ class JcmsCrud(object):
         ]
 
 
+def base_view_class(crud):
+    class BaseViewClass(LoginRequiredMixin, PermissionRequiredMixin):
+        model = crud.model
+        permission_required = 'jcms.create_' + crud.model_name
+
+    return BaseViewClass
+
+
+def create_edit_class(crud):
+    class CreateEditClass(base_view_class(crud)):
+        fields = crud.create_edit_list
+        template_name = 'jcms-admin/crud/edit_or_create.html'
+        success_url = reverse_lazy('jcms:' + crud.model_name + 'List')
+
+    return CreateEditClass
+
+
 # List view with permission create_model_name
 def list_view(crud):
-    class ObjectList(crud.PermissionMixin, ListView):
+    class ObjectList(base_view_class(crud), ListView):
         fields = crud.list_fields
-        model = crud.model
         template_name = 'jcms-admin/crud/list.html'
-        permission_required = 'jcms.create_' + crud.model_name
 
         def get_queryset(self):
             query_set = get_search_queryset(self)
@@ -58,22 +69,15 @@ def list_view(crud):
 
 # Detail view with permission create_model_name
 def detail_view(crud):
-    class ObjectDetail(crud.PermissionMixin, DetailView):
-        model = crud.model
+    class ObjectDetail(base_view_class(crud), DetailView):
         template_name = 'jcms-admin/crud/detail.html'
-        permission_required = 'jcms.create_' + crud.model_name
 
     return ObjectDetail.as_view()
 
 
 # Create view with permission create_model_name
 def create_view(crud):
-    class ObjectCreate(crud.PermissionMixin, SuccessMessageMixin, CreateView):
-        model = crud.model
-        fields = crud.create_edit_list
-        template_name = 'jcms-admin/crud/edit_or_create.html'
-        success_url = reverse_lazy('jcms:' + crud.model_name + 'List')
-        permission_required = 'jcms.create_' + crud.model_name
+    class ObjectCreate(create_edit_class(crud), SuccessMessageMixin, CreateView):
         success_message = 'Successfully created ' + crud.model_name
 
     return ObjectCreate.as_view()
@@ -81,11 +85,7 @@ def create_view(crud):
 
 # Edit view with permission change_model_name
 def edit_view(crud):
-    class ObjectEdit(crud.PermissionMixin, SuccessMessageMixin, UpdateView):
-        model = crud.model
-        fields = crud.create_edit_list
-        template_name = 'jcms-admin/crud/edit_or_create.html'
-        success_url = reverse_lazy('jcms:' + crud.model_name + 'List')
+    class ObjectEdit(create_edit_class(crud), SuccessMessageMixin, UpdateView):
         permission_required = 'jcms.change_' + crud.model_name
         success_message = 'Successfully edited ' + crud.model_name
 
@@ -94,8 +94,7 @@ def edit_view(crud):
 
 # Delete view with permission delete_model_name
 def delete_view(crud):
-    class ObjectDelete(crud.PermissionMixin, DeleteView):
-        model = crud.model
+    class ObjectDelete(base_view_class(crud), DeleteView):
         permission_required = 'jcms.delete_' + crud.model_name
         success_url = reverse_lazy('jcms:' + crud.model_name + 'List')
         success_message = 'Successfully deleted ' + crud.model_name
