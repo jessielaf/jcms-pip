@@ -14,7 +14,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='1.1.0',
+    version='1.1.1',
 
     description='This is a cms written in Django and made by JCB Development',
     long_description=long_description,
@@ -31,7 +31,7 @@ setup(
 
     # See https://PyPI.python.org/PyPI?%3Aaction=list_classifiers
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
 
         'Intended Audience :: Developers',
         'Topic :: Internet :: WWW/HTTP :: Site Management',
@@ -41,8 +41,8 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 3.4',
-        'Framework :: Django :: 1.11'
+        'Programming Language :: Python :: 3.5',
+        'Framework :: Django :: 2.0'
     ],
 
     # What does your project relate to?
