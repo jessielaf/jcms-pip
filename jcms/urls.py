@@ -27,5 +27,5 @@ urlpatterns = [
     path('logout/', loginViews.logout_user, name="logoutUser"),
 ]
 
-urlpatterns += functions.add_crud(crud_models)
+urlpatterns += functions.add_urls(crud_models)
 urlpatterns += functions.add_menu_urls()

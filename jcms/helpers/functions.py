@@ -1,35 +1,30 @@
 from jcms.models import Article
 from django.conf import settings
-from django.conf.urls import url, include
+from django.urls import path, include
 import importlib
 
 
-'''
-Gets the shortcode for a article
-'''
+# Gets the shortcode for a article
 def shortcode(shortcode):
     article = Article.objects.get(shortcode=shortcode)
     return article
 
 
-'''
-Adds the crud urls to the jcms urls
-'''
-def add_crud(cruds):
-    crud_urls = []
+# Adds the crud urls to the jcms urls
+def add_urls(jcms_objects):
+    urls = []
 
-    for crud_model in cruds:
-        crud_urls += crud_model.get_crud_urls()
-    return crud_urls
+    for jcms_object in jcms_objects:
+        urls += jcms_object.get_urls()
+
+    return urls
 
 
-'''
-Adds the menu items to jcms urls
-'''
+# Adds the menu items to jcms urls
 def add_menu_urls():
     jcms_urls = []
 
     for jcms_app in settings.JCMS_APPS:
         slug = importlib.import_module(jcms_app + '.jcms.menu_item').MenuItem.slug
-        jcms_urls.append(url(r'^' + slug + '/', include(jcms_app + '.jcms.urls')))
+        jcms_urls.append(path('', include(jcms_app + '.jcms.urls')))
     return jcms_urls

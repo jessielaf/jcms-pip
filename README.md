@@ -44,6 +44,16 @@ Now to add a user you can do this via the commandline. Find more on this in the 
 Now go to your site's url and do the /admin/ (or if you have chosen another path type that). You can now log in with the credentials you just created.
 
 
+## Before using
+### <span style="color:red;">Be aware of the following things </span>
+There can only be one model with the same name
+
+These model names are in use:
+- User
+- Group
+- Option
+
+
 ## Adding menu items
 
 You can add menu items and urls to jcms. This means that the urls you add are connected to the Jcms app.
@@ -61,52 +71,72 @@ practice-app
 
 Everything for jcms can be done in the jcms folder. I opt to make the views in a views folder.
 
-### Basic crud view
+### Adding crud views
 
+First you need to create a urls.py in the jcms folder. WARNING: This has to be done in the jcms folder. Make sure you copy the example and replace the variables with yours.
 This is a basic example of a crud view for jcms.
 
 ```python
-from dishes.models import Dish
+from jcms.helpers import functions
+from jcmstest.models import Test
 from jcms.mixins.jcms_crud import JcmsCrud
 
+test_view = JcmsCrud(Test, ['type', 'value', 'content'], ['type', 'value'])
 
-class DishesView(JcmsCrud):
-    model = Dish
-    create_edit_list = ['number', 'name', 'price', 'menu_of_the_month', 'subtitle', 'category', 'image']
-    list_fields = ['number', 'name', 'category']
+urls = [
+    test_view,
+]
 
+urlpatterns = functions.add_urls(urls)
 ```
 
 The following options can be given:
-* model = The model this crud is for
-* create_edit_list = This is an array of items which you can create and edit in these views
-* list_fields = This is a list of fields of the model which are shown in the list view
+- **model** = The model this crud is for
+- **create_edit_list** = This is an array of items which you can create and edit in these views
+- **list_fields** = This is a list of fields of the model which are shown in the list view
 
 This makes the following views:
-* Create. Viewname is ${model_name_lower}Create
-* Edit. Viewname is ${model_name_lower}Edit
-* List. Viewname is ${model_name_lower}List
-* Delete. Viewname is ${model_name_lower}Delete
-
-### Adding Jcms urls
-
-First you need to create a urls.py in the jcms folder. WARNING: This has to be done in the jcms folder. Make sure you copy the example and replace the variables with yours.
-
-```python
-from dishes.views import dishesViews, categoryViews, sauceViews
-from jcms.helpers import functions
-
-cruds = [
-    dishesViews.DishesView,
-    categoryViews.CategoriesView,
-    sauceViews.SaucesView,
-]
-
-urlpatterns = functions.add_crud(cruds)
-```
+- Create. Viewname is ${model_name_lower}Create
+- Edit. Viewname is ${model_name_lower}Edit
+- List. Viewname is ${model_name_lower}List
+- Delete. Viewname is ${model_name_lower}Delete
 
 The only thing you need to edit for this is the first line where the views are imported and the content of the crud array.
 
+### Adding api views
+
+First you need to create a urls.py in the jcms folder. WARNING: This has to be done in the jcms folder. Make sure you copy the example and replace the variables with yours.
+This is a basic example of a api view for jcms.
+
+```python
+from jcms.helpers import functions
+from jcmstest.models import Test
+from jcms.mixins.jcms_api import JcmsApi
+
+test_api = JcmsApi(Test, ['type', 'value', 'content'], overview=True, update=True)
+
+urls = [
+    test_api,
+]
+
+urlpatterns = functions.add_urls(urls)
+```
+
+Required variables are:
+- **model** = model used for the api
+- **fields** = fields that can be used by the api
+
+The options you can give to JcmsApi are:
+- **all** = Creates all below
+- **overview** = Gets the models by a GET request to /api/${model_name_lower}
+- **create** = Creates a model by a POST request to /api/${model_name_lower}
+- **update** = Updates a model by a PUT for a full update and a PATCH for partial update to /api/${model_name_lower}/${id}
+- **retrieve** = Gets the model by GET request to /api/${model_name_lower}/${id}
+- **delete** = Deletes a model by DELETE request to /api/${model_name_lower}/${id}
+
+The names for the views are:
+- all or overview and create = ${model_name_lower}ApiUnknown
+- all or update, retrieve and delete = ${model_name_lower}ApiKnown
 
 ### Making the menu items
 
