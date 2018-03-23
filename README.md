@@ -133,10 +133,13 @@ The options you can give to JcmsApi are:
 - **update** = Updates a model by a PUT for a full update and a PATCH for partial update to /api/${model_name_lower}/${id}
 - **retrieve** = Gets the model by GET request to /api/${model_name_lower}/${id}
 - **delete** = Deletes a model by DELETE request to /api/${model_name_lower}/${id}
+- **lookup_field** = Field used for the ${model_name_lower}-detail view
+
+For every option (overview, create, update, retrieve, delete) you can pass certain fields if you don't want to use the basic ones. These are the: ```{option-name}_fields```
 
 The names for the views are:
-- all or overview and create = ${model_name_lower}ApiUnknown
-- all or update, retrieve and delete = ${model_name_lower}ApiKnown
+- all or overview and create = ${model_name_lower}-list
+- all or update, retrieve and delete = ${model_name_lower}-detail
 
 ### Making the menu items
 
