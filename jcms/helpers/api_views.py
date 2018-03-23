@@ -1,70 +1,68 @@
-from rest_framework import generics, serializers
-
-
-# Creates the standard mixin for the general views of rest_framework
-def standard_mixin(self):
-    class StandardMixin:
-        queryset = self.model.objects.all()
-        serializer_class = self.serializer
-        lookup_field = self.lookup_field
-
-    return StandardMixin
-
-
-# This returns the url that adds the api calls for a model that exists
-# Options that can be returned are: retrieve, update and delete
-def known_model(self):
-    # Check which they should be extending
-    if self.all or (self.retrieve and self.update and self.delete):
-        extend_class = generics.RetrieveUpdateDestroyAPIView
-    elif self.retrieve and self.update:
-        extend_class = generics.RetrieveUpdateAPIView
-    elif self.retrieve and self.delete:
-        extend_class = generics.RetrieveDestroyAPIView
-    elif self.update and self.delete:
-        # There is no standard mixin for this
-        class KnownModel(standard_mixin(self), generics.UpdateAPIView, generics.DestroyAPIView):
-            pass
-
-        return KnownModel
-    elif self.retrieve:
-        extend_class = generics.RetrieveAPIView
-    elif self.update:
-        extend_class = generics.UpdateAPIView
-    elif self.delete:
-        extend_class = generics.DestroyAPIView
-    else:
-        return None
-
-    class KnownModel(standard_mixin(self), extend_class):
-        pass
-
-    return KnownModel
-
-
-# This returns the url that adds the api calls for a model that does not exists
-# Options that can be returned are: overview and create
-def unknown_model(self):
-    if self.all or (self.overview and self.create):
-        extend_class = generics.ListCreateAPIView
-    elif self.create:
-        extend_class = generics.CreateAPIView
-    elif self.overview:
-        extend_class = generics.ListAPIView
-    else:
-        return None
-
-    class UnknownModel(standard_mixin(self), extend_class):
-        pass
-
-    return UnknownModel
+from rest_framework import viewsets, serializers
+from rest_framework.exceptions import MethodNotAllowed
 
 
 # Creates a standard serializer for a model
-def create_serializer(self):
+def create_serializer(api_model, serialize_fields):
     class ModelSerializer(serializers.ModelSerializer):
         class Meta:
-            model = self.model
-            fields = self.fields
+            model = api_model
+            fields = serialize_fields
 
     return ModelSerializer
+
+
+def get_model_set(main):
+    class ObjectModelSet(viewsets.ModelViewSet):
+        queryset = main.model.objects.all()
+        lookup_field = main.lookup_field
+
+        serializer_classes = {
+            'list': main.overview_fields,
+            'create': main.create_fields,
+            'retrieve': main.retrieve_fields,
+            'update': main.update_fields,
+            'partial_update': main.update_fields,
+            'destroy': main.delete_fields,
+        }
+
+        def list(self, request, *args, **kwargs):
+            if main.overview or main.all:
+                return super(ObjectModelSet, self).list(request, args, kwargs)
+            raise MethodNotAllowed('Overview or all is not turned on')
+
+        def create(self, request, *args, **kwargs):
+            if main.create or main.all:
+                return super(ObjectModelSet, self).create(request, *args, **kwargs)
+            raise MethodNotAllowed('Create or all is not turned on')
+
+        def retrieve(self, request, *args, **kwargs):
+            if main.retrieve or main.all:
+                return super(ObjectModelSet, self).retrieve(request, *args, **kwargs)
+            raise MethodNotAllowed('Retrieve or all is not turned on')
+
+        def update(self, request, *args, **kwargs):
+            if main.update or main.all:
+                return super(ObjectModelSet, self).update(request, *args, **kwargs)
+            raise MethodNotAllowed('Update or all is not turned on')
+
+        def partial_update(self, request, *args, **kwargs):
+            if main.update or main.all:
+                return super(ObjectModelSet, self).partial_update(request, *args, **kwargs)
+            raise MethodNotAllowed('Update or all is not turned on')
+
+        def destroy(self, request, *args, **kwargs):
+            if main.delete or main.all:
+                return super(ObjectModelSet, self).destroy(request, *args, **kwargs)
+            raise MethodNotAllowed('Destroy or all is not turned on')
+
+        def get_serializer_class(self):
+            try:
+                if self.serializer_classes[self.action] is not None:
+                    return create_serializer(main.model, self.serializer_classes[self.action])
+
+                raise KeyError
+            except (KeyError, AttributeError):
+                return create_serializer(main.model, main.basis_fields)
+
+    return ObjectModelSet

@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "06d8f67e-da0f-4837-8f1f-db7985dce9bd",
+		"name": "Jcmsdemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"endPointTest\",\n    \"value\": \"endPointTest\",\n    \"content\": \"endPointTest\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/test/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"test",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"endPointTest2\",\n    \"value\": \"endPointTest2\",\n    \"content\": \"endPointTest2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/test/endPointTest/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"test",
+						"endPointTest",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"endPointTest2\",\n    \"value\": \"endPointTest2\",\n    \"content\": \"endPointTest2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/test/endPointTest2/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"test",
+						"endPointTest2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Partial update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": \"endPointTestAfterPatch\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/test/endPointTest2/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"test",
+						"endPointTest2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"endPointTest2\",\n    \"value\": \"endPointTest2\",\n    \"content\": \"endPointTest2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/api/test/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"test",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/api/test/endPointTest2/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"test",
+						"endPointTest2",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

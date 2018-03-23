@@ -1,44 +1,49 @@
-from jcms.helpers.api_views import known_model, unknown_model, create_serializer
-from django.urls import path
+from jcms.helpers.api_views import get_model_set
+from rest_framework import routers
 
 
 class JcmsApi:
-    def __init__(self, model, fields, lookup_field='pk', create=False, retrieve=False, update=False, delete=False, overview=False, all=False):
+    def __init__(
+        self, model,
+        basis_fields,
+        lookup_field='pk',
+        create=False, create_fields=None,
+        retrieve=False, retrieve_fields=None,
+        update=False, update_fields=None,
+        delete=False, delete_fields=None,
+        overview=False, overview_fields=None,
+        all=False
+    ):
+
         self.model = model
-        self.fields = fields
+        self.basis_fields = basis_fields
         self.lookup_field = lookup_field
 
         # Crud variables
         self.create = create
+        self.create_fields = create_fields
+
         self.retrieve = retrieve
+        self.retrieve_fields = retrieve_fields
+
         self.update = update
+        self.update_fields = update_fields
+
         self.delete = delete
+        self.delete_fields = delete_fields
+
         self.overview = overview
+        self.overview_fields = overview_fields
+
         self.all = all
 
         # Variables that are used very often
-        self.serializer = create_serializer(self)
         self.model_name = model.__name__.lower()
 
     # makes the urls
     def get_urls(self):
-        known_model_views = self.known_model()
-        unknown_model_views = self.unknown_model()
+        view = get_model_set(self)
+        router = routers.SimpleRouter()
+        router.register(r'api/' + self.model_name, view)
 
-        urls = []
-
-        if known_model_views:
-            urls.append(path('api/' + self.model_name + '/<' + self.lookup_field + '>/', known_model_views.as_view(), name=self.model_name + 'ApiKnown'))
-
-        if unknown_model_views:
-            urls.append(path('api/' + self.model_name + '/', unknown_model_views.as_view(), name=self.model_name + 'ApiUnknown'))
-
-        return urls
-
-    # So it can be overwritten
-    def known_model(self):
-        return known_model(self)
-
-    # So it can be overwritten
-    def unknown_model(self):
-        return unknown_model(self)
+        return router.urls

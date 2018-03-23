@@ -15,7 +15,7 @@ def add_urls(jcms_objects):
     urls = []
 
     for jcms_object in jcms_objects:
-        urls += jcms_object.get_urls()
+        urls.extend(jcms_object.get_urls())
 
     return urls
 
