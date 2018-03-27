@@ -39,10 +39,10 @@
                         <td>{{ object|get_object_attr:field }}</td>
                     {% endfor %}
                     <td>
-                        <form class="form" action="{% url "Delete"|crud_url:view.model pk=object.id %}"
+                        <form class="form" action="{% url "Delete"|crud_url:view.model pk=object.pk %}"
                             method="POST">
                             {% csrf_token %}
-                            <a class="btn edit" href="{% url "Edit"|crud_url:view.model pk=object.id %}">
+                            <a class="btn edit" href="{% url "Edit"|crud_url:view.model pk=object.pk %}">
                                 {% include "icons/edit.svg" %} Edit
                             </a>
                             <button class="btn danger delete-button" type="submit" value="">{% include "icons/delete.svg" %} Delete</button>
