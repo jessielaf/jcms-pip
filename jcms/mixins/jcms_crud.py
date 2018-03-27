@@ -18,10 +18,10 @@ class JcmsCrud(object):
     def get_urls(self):
         return [
             path(self.model_name + '/', self.list_view(), name=self.model_name + 'List'),
-            path(self.model_name + '/<pk>/', self.detail_view(), name=self.model_name + 'Detail'),
             path(self.model_name + '/create/', self.create_view(), name=self.model_name + 'Create'),
-            path(self.model_name + '/<pk>/delete/', self.delete_view(), name=self.model_name + 'Delete'),
+            path(self.model_name + '/<pk>/', self.detail_view(), name=self.model_name + 'Detail'),
             path(self.model_name + '/<pk>/edit/', self.edit_view(), name=self.model_name + 'Edit'),
+            path(self.model_name + '/<pk>/delete/', self.delete_view(), name=self.model_name + 'Delete'),
         ]
 
     # So it can be overwritten
