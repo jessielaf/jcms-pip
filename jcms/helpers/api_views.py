@@ -16,6 +16,7 @@ def get_model_set(main):
     class ObjectModelSet(viewsets.ModelViewSet):
         queryset = main.model.objects.all()
         lookup_field = main.lookup_field
+        filter_fields = main.overview_fields if main.overview_fields else main.basis_fields
 
         serializer_classes = {
             'list': main.overview_fields,

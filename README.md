@@ -128,7 +128,7 @@ Required variables are:
 
 The options you can give to JcmsApi are:
 - **all** = Creates all below
-- **overview** = Gets the models by a GET request to /api/${model_name_lower}
+- **overview** = Gets the models by a GET request to /api/${model_name_lower}. You can also filter on these fields using query parameters. If no overview fields are given is goes back to the basis fields
 - **create** = Creates a model by a POST request to /api/${model_name_lower}
 - **update** = Updates a model by a PUT for a full update and a PATCH for partial update to /api/${model_name_lower}/${id}
 - **retrieve** = Gets the model by GET request to /api/${model_name_lower}/${id}
