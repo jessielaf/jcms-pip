@@ -82,15 +82,14 @@ def delete_view(crud):
     return ObjectDelete.as_view()
 
 
-def get_search_queryset(crud):
-    search_term = crud.request.GET.get('search')
+def get_search_queryset(generic_list):
+    search_term = generic_list.request.GET.get('search')
     if search_term:
-        print(search_term)
-        queries = [Q(**{f + '__icontains': search_term}) for f in crud.fields]
+        queries = [Q(**{f + '__icontains': search_term}) for f in generic_list.fields]
         qs = Q()
         for query in queries:
             qs = qs | query
 
-        return crud.model.objects.filter(qs)
+        return generic_list.model.objects.filter(qs)
 
     return None
