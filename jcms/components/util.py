@@ -1,5 +1,7 @@
 import warnings
 
+from .no_config import NoConfig
+
 
 def warn(warning: str):
     """
@@ -22,9 +24,11 @@ def app_has_attr(app_name, app_data, variable_name: str, variable_type) -> bool:
     :return: Bool
     """
 
-    has_attribute = hasattr(app_data, variable_name) and isinstance(getattr(app_data, variable_name), variable_type)
+    has_attribute = hasattr(app_data, variable_name) and (isinstance(getattr(app_data, variable_name), variable_type)
+                                                          or getattr(app_data, variable_name) == NoConfig)
 
-    if not has_attribute: warn('In app ' + app_name + ': no ' + variable_name + ' in jcms.py found or '
-                                              + variable_name + ' is not instance of ' + variable_type.__name__)
+    if not has_attribute:
+        warn('In app ' + app_name + ': no ' + variable_name + ' in jcms.py found, '
+             + variable_name + ' is not instance of ' + variable_type.__name__ + ' or is NoConfig')
 
     return has_attribute

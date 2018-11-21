@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User, Group
+
+from jcms.components import NoConfig
 from jcms.models import Option, Article
 from jcms.generators import CMSGenerator
 
@@ -14,3 +16,5 @@ urlpatterns = [
     user_view,
     groups_view
 ]
+
+menu_item = NoConfig

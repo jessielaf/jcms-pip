@@ -54,7 +54,7 @@ These model names are in use:
 - Option
 
 
-## Adding menu items
+## jcms.py
 
 You can add menu items and urls to jcms. This means that the urls you add are connected to the Jcms app.
 
@@ -70,6 +70,13 @@ practice-app
 ```
 
 Everything for jcms can be done in the jcms.py file.
+
+> You can disable the warning for each setting if you don't want to add it by adding this to jcms.py
+```python
+from jcms.components import NoConfig
+
+menu_item = NoConfig
+```
 
 ### Adding crud views
 
