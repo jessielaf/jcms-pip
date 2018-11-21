@@ -31,10 +31,10 @@ INSTALLED_APPS = [
 After this you need to add the urls to your urls.py. You can replace admin with everything you want.
 
 ```python
-from django.conf.urls import url, include
+from django.conf.urls import path, include
 
 urlpatterns = [
-    url(r'^admin/', include('jcms.urls')),
+    path('admin/', include('jcms.urls')),
 ]
 ```
 
@@ -58,36 +58,30 @@ These model names are in use:
 
 You can add menu items and urls to jcms. This means that the urls you add are connected to the Jcms app.
 
-What you first have to do is add the jcms folder to the app. The file structure of the app is underneath
+What you first have to do is add the jcms.py file to the app. The file structure of the app is underneath
 
 ```
 practice-app
-    jcms
+    jcms.py
     migrations
     static
     templates
     other-folders
 ```
 
-Everything for jcms can be done in the jcms folder. I opt to make the views in a views folder.
+Everything for jcms can be done in the jcms.py file.
 
 ### Adding crud views
 
-First you need to create a urls.py in the jcms folder. WARNING: This has to be done in the jcms folder. Make sure you copy the example and replace the variables with yours.
-This is a basic example of a crud view for jcms.
 
 ```python
-from jcms.helpers import functions
-from jcmstest.models import Test
-from jcms.mixins.jcms_crud import JcmsCrud
+from jcms.generators import CMSGenerator
+from jcmstest.models import Test, PK
 
-test_view = JcmsCrud(Test, ['type', 'value', 'content'], ['type', 'value'])
-
-urls = [
-    test_view,
+urlpatterns = [
+    CMSGenerator(Test, ['type', 'value', 'content'], ['type', 'value']),
+    CMSGenerator(PK, ['name'], ['name'])
 ]
-
-urlpatterns = functions.add_urls(urls)
 ```
 
 The following options can be given:
@@ -95,38 +89,36 @@ The following options can be given:
 - **create_edit_list** = This is an array of items which you can create and edit in these views
 - **list_fields** = This is a list of fields of the model which are shown in the list view
 
-This makes the following views:
+CMSGenerator makes the following views:
 - Create. Viewname is ${model_name_lower}Create
 - Edit. Viewname is ${model_name_lower}Edit
 - List. Viewname is ${model_name_lower}List
 - Delete. Viewname is ${model_name_lower}Delete
 
-The only thing you need to edit for this is the first line where the views are imported and the content of the crud array.
-
 ### Adding api views
 
-First you need to create a urls.py in the jcms folder. WARNING: This has to be done in the jcms folder. Make sure you copy the example and replace the variables with yours.
 This is a basic example of a api view for jcms.
 
 ```python
-from jcms.helpers import functions
+from jcms.generators import APIGenerator
 from jcmstest.models import Test
-from jcms.mixins.jcms_api import JcmsApi
 
-test_api = JcmsApi(Test, ['type', 'value', 'content'], overview=True, update=True)
-
-urls = [
-    test_api,
+urlpatterns = [
+    APIGenerator(Test, ['type', 'value', 'content'], lookup_field='type', all=True,
+            method_fields={'overview_fields': ['id', 'type', 'value', 'content']})
 ]
-
-urlpatterns = functions.add_urls(urls)
 ```
 
 Required variables are:
 - **model** = model used for the api
-- **fields** = fields that can be used by the api
+- **basis_fields** = default fields that the api uses to serialize
+- **lookup_field** = The field that is used for the retrieving of a single object
 
-The options you can give to JcmsApi are:
+The options you can give to APIGenerator are:
+- **methods** = A list that has the methods that are allowed ([see below](#methods))
+- **method_fields** = A dict that has the fields for each method
+
+#### methods
 - **all** = Creates all below
 - **overview** = Gets the models by a GET request to /api/${model_name_lower}. You can also filter on these fields using query parameters. If no overview fields are given is goes back to the basis fields
 - **create** = Creates a model by a POST request to /api/${model_name_lower}
@@ -135,7 +127,7 @@ The options you can give to JcmsApi are:
 - **delete** = Deletes a model by DELETE request to /api/${model_name_lower}/${id}
 - **lookup_field** = Field used for the ${model_name_lower}-detail view
 
-For every option (overview, create, update, retrieve, delete) you can pass certain fields if you don't want to use the basic ones. These are the: ```{option-name}_fields```
+For every each option (overview, create, update, retrieve, delete) you can pass certain fields if you don't want to use the basic ones. You can pass them in the dict object of method_fields
 
 The names for the views are:
 - all or overview and create = ${model_name_lower}-list
@@ -143,30 +135,22 @@ The names for the views are:
 
 ### Making the menu items
 
-First you need to create a menu_item.py in the jcms folder. WARNING: This has to be done in the jcms folder. Make sure you copy the example and replace the variables with yours.
+First you need to create a menu_item.py in the jcms.py file.
 
 ```python
-from jcms.mixins.menu_item import MenuItem as GenericMenuItem
-from jcms.helpers.menu_item import MenuItem as SingleMenuItem
+from jcms.models import GenericMenuItem, SingleMenuItem
+from jcmstest.models import Test, PK
 
-
-class MenuItem(GenericMenuItem, object):
-    slug = 'dishes'
-    name = 'Dishes'
-    icon = 'dish'
-
-    items = [
-        SingleMenuItem('Dishes', 'dishList'),
-        SingleMenuItem('Categories', 'categoryList'),
-        SingleMenuItem('Sauces', 'sauceList'),
-    ]
+menu_item = GenericMenuItem('Test',  [
+    SingleMenuItem('Test', 'testList'),
+    SingleMenuItem('PK', 'pkList'),
+])
 ```
 
 You can give the following options:
-* slug = The slug used in the url
 * name = The name seen on the menu item
-* icon = The svg used for the menu item. If there is no icon given it uses the fallback svg
-* items = All the options in the menu item. This HAS to be a SingleMenuItem Object.
+* items = List of the menu item. This HAS to be a SingleMenuItem Object.
+* slug = The slug used in the url. The slug is optional
 
 ### Adding your menu item to jcms
 
@@ -220,7 +204,7 @@ Load a crud url based upon the model
 {% url "Create"|crud_url:model %}
 ```
 
-### get_model_items
+### get_menu_items
 
 Get menu items for the cms
 

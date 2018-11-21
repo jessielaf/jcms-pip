@@ -12,11 +12,11 @@
                 {% else %}
                     {% include "icons/standard-menu-item.svg" %}
                 {% endif %}
-                {{ menu_item.name }}
+                {{ menu_item.title }}
             </a>
             <div class="menu-target">
-                {% for single_item in menu_item.items %}
-                    <a class="col-12 option" href="{% url "jcms:"|add:single_item.url_name %}">{{ single_item.title }}</a>
+                {% for single_item in menu_item.single_menu_items %}
+                    <a class="col-12 option" href="{% url "jcms:"|add:single_item.slug %}">{{ single_item.title }}</a>
                 {% endfor %}
             </div>
         </div>
