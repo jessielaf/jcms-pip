@@ -1,4 +1,4 @@
-from jcms.components import StaticFunctions
+from jcms.components.util import app_has_attr
 from jcms.config import AppInfo
 from jcms.generators.url_generator import UrlGenerator
 
@@ -21,7 +21,7 @@ class UrlParser:
         app_info = AppInfo()
 
         for app_name, app_data in app_info.JCMS_APPS.items():
-            if StaticFunctions.app_has_attr(app_name, app_data, 'urlpatterns', list):
+            if app_has_attr(app_name, app_data, 'urlpatterns', list):
                 for urlpattern in app_data.urlpatterns:
                     if isinstance(urlpattern, UrlGenerator):
                         urls += urlpattern.get_urls()

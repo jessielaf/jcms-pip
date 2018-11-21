@@ -15,8 +15,9 @@ from .url_generator import UrlGenerator
 
 class CMSGenerator(UrlGenerator):
     """
-    Creates all views needed for a model
+    Creates a cms crud for the model
     """
+
     __metaclass__ = ABCMeta
 
     def __init__(self, model, create_edit_list, list_fields=[], icon=''):
@@ -26,8 +27,13 @@ class CMSGenerator(UrlGenerator):
         self.icon = icon
         self.model_name = model.__name__.lower()
 
-    # Gets all url objects for to create the urls
     def get_urls(self):
+        """
+        Gets all url objects for to create the urls
+
+        :return: List[path]
+        """
+
         return [
             path(self.model_name + '/', self.list_view(), name=self.model_name + 'List'),
             path(self.model_name + '/create/', self.create_view(), name=self.model_name + 'Create'),

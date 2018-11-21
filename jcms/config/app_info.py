@@ -1,6 +1,6 @@
 import importlib
 from jcms.config.jcms_settings import JcmsSettings
-from jcms.components.static_functions import StaticFunctions
+from jcms.components.util import warn
 
 APPS_SUBMODULE = 'APPS'
 
@@ -31,7 +31,7 @@ class AppInfo(object):
                 try:
                     self.JCMS_APPS[jcms_app] = importlib.import_module(jcms_app + '.jcms')
                 except ModuleNotFoundError:
-                    StaticFunctions.warn('JCMS app {0} does not have a jcms.py. Please create a the jcms.py in the {0} '
+                    warn('JCMS app {0} does not have a jcms.py. Please create a the jcms.py in the {0} '
                                          'app or delete it from JCMS.APPS'.format(jcms_app.upper()))
 
     def __new__(self):

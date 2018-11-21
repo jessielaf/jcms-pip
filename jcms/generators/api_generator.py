@@ -5,6 +5,10 @@ from .url_generator import UrlGenerator
 
 
 class APIGenerator(UrlGenerator):
+    """
+    Generates an api based on a model
+    """
+
     def __init__( self, model, basis_fields, lookup_field='pk', methods=[], method_fields={}, all=False):
         self.model = model
         self.basis_fields = basis_fields
@@ -18,8 +22,12 @@ class APIGenerator(UrlGenerator):
         # Variables that are used very often
         self.model_name = model.__name__.lower()
 
-    # makes the urls
     def get_urls(self):
+        """
+        Creates the urls
+
+        :return: List[url]
+        """
         view = self.get_model_set()
         router = routers.SimpleRouter()
         router.register('api/' + self.model_name, view)
@@ -27,6 +35,12 @@ class APIGenerator(UrlGenerator):
         return router.urls
 
     def get_model_set(self):
+        """
+        Creates model view set for a model
+
+        :return: ModelViewSet
+        """
+
         main = self
 
         class ObjectModelSet(viewsets.ModelViewSet):
@@ -74,6 +88,14 @@ class APIGenerator(UrlGenerator):
 
     @staticmethod
     def create_serializer(api_model, serialize_fields):
+        """
+        Creates a serializer of the model
+
+        :param api_model:
+        :param serialize_fields:
+        :return: ModelSerializer
+        """
+
         class ModelSerializer(serializers.ModelSerializer):
             class Meta:
                 model = api_model

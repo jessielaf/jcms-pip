@@ -1,6 +1,6 @@
 from typing import List
+from django.template.defaultfilters import slugify
 from jcms.models.single_menu_item import SingleMenuItem
-from django.urls import path
 
 
 class GenericMenuItem:
@@ -8,7 +8,7 @@ class GenericMenuItem:
     Generic menu item that can be seen in the left bar in the cms
     """
 
-    def __init__(self, slug: str, title: str, single_menu_items: List[SingleMenuItem]):
+    def __init__(self, title: str, single_menu_items: List[SingleMenuItem], slug: str = False):
         """
         :param slug: The slug the single menu items will have in front of them
         :type slug: str
@@ -17,6 +17,11 @@ class GenericMenuItem:
         :param single_menu_items: SingleMenuItems that are shown as children
         :type single_menu_items: List[SingleMenuItem]
         """
-        self.slug = slug
+
+        if slug:
+            self.slug = slug
+        else:
+            self.slug = slugify(title)
+
         self.title = title
         self.single_menu_items = single_menu_items
